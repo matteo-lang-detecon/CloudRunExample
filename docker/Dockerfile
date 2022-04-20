@@ -7,7 +7,7 @@ ENV APP_HOME /app
 WORKDIR $APP_HOME
 COPY /src ./
 
-RUN pip install --no-cache-dir -r /src/requirements.txt
+RUN pip install --no-cache-dir -r requirements.txt
 # gunicorn is always needed for Cloud Run
 RUN pip install gunicorn 
 
