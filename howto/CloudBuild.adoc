@@ -1,0 +1,10 @@
+# How to configure Cloud Build
+
+## Image name
+
+Resources are limited to EU regions and zones. Therefore you need to use `eu.gcr.io` for your images. The image name will look something like this: 
+`eu.gcr.io/<project-name>/<$REPO_NAME>:<$COMMIT_SHA>`
+
+You should also add variables to your image names to differentiate the image versions. Supported variables are: `$PROJECT_ID, $REPO_NAME, $BRANCH_NAME, $TAG_NAME, $COMMIT_SHA, $SHORT_SHA`
+
+Note: Image names must not have uppercase characters. If the repository's name isn't all lowercase, you can either can hard code it into the image name or can overwrite the variable with a _Substitution Variable_ under *Advanced*
