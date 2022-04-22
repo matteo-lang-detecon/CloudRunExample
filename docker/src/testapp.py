@@ -10,12 +10,12 @@ import mysql.connector
 flaskapp = Flask(__name__)
 
 # base route to check if service is running
-@flaskapp.route('/alive')
+@flaskapp.route('/')
 def alive():
     return "I'm alive!"
 
-@app.route('/customers', methods=['GET'])
-def index():
+@flaskapp.route('/customers', methods=['GET'])
+def customers():
     conn = mysql.connector.connect(
         host = os.environ.get("DB_HOST"), 
         user = os.environ.get("DB_USER"),
@@ -38,8 +38,8 @@ def index():
     # return the results
     return json.dumps(json_data)
 
-@app.route('/agents', methods=['GET'])
-def index():
+@flaskapp.route('/agents', methods=['GET'])
+def agents():
     conn = mysql.connector.connect(
         host = os.environ.get("DB_HOST"), 
         user = os.environ.get("DB_USER"),
